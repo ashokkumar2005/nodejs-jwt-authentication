@@ -1,121 +1,114 @@
-# 🔐 Node.js Authentication Project (JWT + bcrypt)
+# 🔐 Node.js Authentication API (JWT + bcrypt)
 
-This project demonstrates a **simple authentication system** built using **Node.js and Express**.
-It includes **Signup, Login, Password Hashing, JWT Authentication, and Protected Routes**.
-
-This project is useful for learning how **modern backend authentication works in real applications**.
+A secure and scalable authentication system built using **Node.js** and **Express.js**.
+This project demonstrates how modern backend authentication works using **JWT (JSON Web Tokens)** and **bcrypt for password hashing**.
 
 ---
 
-# 🚀 Features
+## 🚀 Features
 
-* User Signup
-* Password Hashing using **bcrypt**
-* User Login
-* **JWT Token Generation**
-* **Authentication Middleware**
-* **Protected Routes**
-* MVC Folder Structure
-* Uses **Promises, async/await**
+* ✅ User Signup & Login
+* 🔐 Password Hashing using bcrypt
+* 🎫 JWT Token Generation
+* 🛡️ Authentication Middleware
+* 🔒 Protected Routes
+* 🧩 MVC Architecture
+* ⚡ Async/Await & Promises
 
 ---
 
-# 📂 Project Structure
+## 🛠️ Tech Stack
+
+* Node.js
+* Express.js
+* bcrypt
+* jsonwebtoken (JWT)
+
+---
+
+## 📂 Project Structure
 
 ```
 authentication-JWT
 │
-├── controller
+├── controller/
 │   └── controller.js
-│
-├── middleware
+├── middleware/
 │   └── authmiddleware.js
-│
-├── model
+├── model/
 │   └── model.js
-│
-├── routes
+├── routes/
 │   └── authroutes.js
-│
 ├── server.js
-│
 ├── package.json
-└── package-lock.json
 ```
 
 ---
 
-# ⚙️ Installation
+## ⚙️ Installation & Setup
 
-Clone the repository:
+### 1️⃣ Clone the repository
 
-```
+```bash id="9jqf8c"
 git clone https://github.com/yourusername/authentication-JWT.git
 ```
 
-Go to project folder:
+### 2️⃣ Navigate to the project
 
-```
+```bash id="h1kz4a"
 cd authentication-JWT
 ```
 
-Install dependencies:
+### 3️⃣ Install dependencies
 
-```
+```bash id="n12vyo"
 npm install
 ```
 
-Start the server:
+### 4️⃣ Start the server
 
-```
+```bash id="3k9p4m"
 node server.js
 ```
 
-Server runs on:
-
-```
+👉 Server will run on:
 http://localhost:3000
-```
 
 ---
 
-# 📌 Authentication Flow
+## 🔐 Authentication Flow
 
 ```
-Signup
+User Signup
    ↓
-Password hashed using bcrypt
+Password hashed (bcrypt)
    ↓
-Saved in database
+Stored securely
    ↓
-Login
+User Login
    ↓
-bcrypt compares password
+Password verified
    ↓
 JWT token generated
    ↓
 Client stores token
    ↓
-Client sends token in request header
+Token sent in headers
    ↓
-Server verifies JWT
+Server verifies token
    ↓
 Access protected routes
 ```
 
 ---
 
-# 🔑 API Endpoints
+## 🔗 API Endpoints
 
-## 1️⃣ Signup
+### 📌 Signup
 
-**POST**
+**POST** `/signup`
 
-```
-/signup
-```
-
-Request Body:
+Request:
 
 ```json
 {
@@ -132,15 +125,11 @@ User registered successfully
 
 ---
 
-## 2️⃣ Login
+### 📌 Login
 
-**POST**
+**POST** `/login`
 
-```
-/login
-```
-
-Request Body:
+Request:
 
 ```json
 {
@@ -160,18 +149,14 @@ Response:
 
 ---
 
-## 3️⃣ Protected Route
+### 📌 Protected Route
 
-**GET**
-
-```
-/profile
-```
+**GET** `/profile`
 
 Headers:
 
 ```
-Authorization: JWT_TOKEN
+Authorization: Bearer JWT_TOKEN
 ```
 
 Response:
@@ -182,91 +167,59 @@ Welcome username
 
 ---
 
-# 🔒 Technologies Used
+## 🔑 Core Concepts
 
-* Node.js
-* Express.js
-* bcrypt (Password Hashing)
-* jsonwebtoken (JWT Authentication)
-
----
-
-# 📖 Important Concepts Used
-
-### Password Hashing
-
-Passwords are secured using **bcrypt hashing**.
-
-Example:
+### 🔐 Password Hashing
 
 ```javascript
 const hashPassword = await bcrypt.hash(password, 10);
 ```
 
----
-
-### Password Verification
+### 🔍 Password Verification
 
 ```javascript
 const match = await bcrypt.compare(password, user.password);
 ```
 
----
-
-### JWT Token Generation
+### 🎫 JWT Token
 
 ```javascript
 const token = jwt.sign(
- { username: user.username },
- SECRET,
- { expiresIn: "1h" }
+  { username: user.username },
+  SECRET,
+  { expiresIn: "1h" }
 );
 ```
 
 ---
 
-### Authentication Middleware
+## 📚 Concepts Covered
 
-Middleware verifies the token before accessing protected routes.
-
-```
-Client Request
-      ↓
-Auth Middleware
-      ↓
-JWT Verify
-      ↓
-Access Route
-```
-
----
-
-# 🧠 Concepts Learned
-
-* REST API
-* Express Routing
-* MVC Structure
+* REST API Development
+* MVC Architecture
 * Middleware
-* JWT Authentication
+* Authentication & Authorization
 * Password Security
-* Async / Await
-* Promises
+* Async Programming
 
 ---
 
-# 📌 Future Improvements
+## 🚀 Future Improvements
 
-* Add MongoDB database
-* Add Refresh Tokens
-* Role-Based Authentication
-* Logout functionality
-* User validation
+* 🔄 MongoDB Integration
+* 🔐 Refresh Tokens
+* 👥 Role-Based Access Control
+* 🚪 Logout Feature
+* ✅ Input Validation
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
-Ashok Sam
-
+**Ashok Sam**
 Backend Developer (Node.js & Express)
 
+* GitHub: https://github.com/ashokkumar2005
+* Portfolio: https://onepiece-portfolio-sam.vercel.app/
+
+---
