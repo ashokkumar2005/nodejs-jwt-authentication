@@ -1,19 +1,19 @@
 # 🔐 Node.js Authentication API (JWT + bcrypt)
 
-A secure and scalable authentication system built using **Node.js** and **Express.js**.
-This project demonstrates how modern backend authentication works using **JWT (JSON Web Tokens)** and **bcrypt for password hashing**.
+A secure and scalable **authentication system** built using **Node.js** and **Express.js**.
+This project demonstrates real-world backend authentication using **JWT (JSON Web Tokens)** and **bcrypt for password hashing**.
 
 ---
 
 ## 🚀 Features
 
 * ✅ User Signup & Login
-* 🔐 Password Hashing using bcrypt
-* 🎫 JWT Token Generation
+* 🔐 Secure Password Hashing using bcrypt
+* 🎫 JWT Token Generation & Verification
 * 🛡️ Authentication Middleware
 * 🔒 Protected Routes
-* 🧩 MVC Architecture
-* ⚡ Async/Await & Promises
+* 🧩 Clean MVC Architecture
+* ⚡ Async/Await for better performance
 
 ---
 
@@ -22,7 +22,7 @@ This project demonstrates how modern backend authentication works using **JWT (J
 * Node.js
 * Express.js
 * bcrypt
-* jsonwebtoken (JWT)
+* JSON Web Token (JWT)
 
 ---
 
@@ -49,30 +49,30 @@ authentication-JWT
 
 ### 1️⃣ Clone the repository
 
-```bash id="9jqf8c"
+```bash
 git clone https://github.com/yourusername/authentication-JWT.git
 ```
 
-### 2️⃣ Navigate to the project
+### 2️⃣ Navigate into the project
 
-```bash id="h1kz4a"
+```bash
 cd authentication-JWT
 ```
 
 ### 3️⃣ Install dependencies
 
-```bash id="n12vyo"
+```bash
 npm install
 ```
 
 ### 4️⃣ Start the server
 
-```bash id="3k9p4m"
+```bash
 node server.js
 ```
 
-👉 Server will run on:
-http://localhost:3000
+👉 Server runs on:
+`http://localhost:3000`
 
 ---
 
@@ -83,7 +83,7 @@ User Signup
    ↓
 Password hashed (bcrypt)
    ↓
-Stored securely
+Stored securely in database
    ↓
 User Login
    ↓
@@ -93,11 +93,11 @@ JWT token generated
    ↓
 Client stores token
    ↓
-Token sent in headers
+Token sent in Authorization header
    ↓
 Server verifies token
    ↓
-Access protected routes
+Access granted to protected routes
 ```
 
 ---
@@ -108,7 +108,7 @@ Access protected routes
 
 **POST** `/signup`
 
-Request:
+**Request Body**
 
 ```json
 {
@@ -117,7 +117,7 @@ Request:
 }
 ```
 
-Response:
+**Response**
 
 ```
 User registered successfully
@@ -129,7 +129,7 @@ User registered successfully
 
 **POST** `/login`
 
-Request:
+**Request Body**
 
 ```json
 {
@@ -138,7 +138,7 @@ Request:
 }
 ```
 
-Response:
+**Response**
 
 ```json
 {
@@ -153,13 +153,13 @@ Response:
 
 **GET** `/profile`
 
-Headers:
+**Headers**
 
 ```
 Authorization: Bearer JWT_TOKEN
 ```
 
-Response:
+**Response**
 
 ```
 Welcome username
@@ -181,12 +181,12 @@ const hashPassword = await bcrypt.hash(password, 10);
 const match = await bcrypt.compare(password, user.password);
 ```
 
-### 🎫 JWT Token
+### 🎫 JWT Token Generation
 
 ```javascript
 const token = jwt.sign(
   { username: user.username },
-  SECRET,
+  process.env.SECRET_KEY,
   { expiresIn: "1h" }
 );
 ```
@@ -197,20 +197,21 @@ const token = jwt.sign(
 
 * REST API Development
 * MVC Architecture
-* Middleware
+* Middleware in Express
 * Authentication & Authorization
-* Password Security
+* Password Security Best Practices
 * Async Programming
 
 ---
 
 ## 🚀 Future Improvements
 
-* 🔄 MongoDB Integration
-* 🔐 Refresh Tokens
-* 👥 Role-Based Access Control
-* 🚪 Logout Feature
-* ✅ Input Validation
+* 🔄 MongoDB / Database Integration
+* 🔐 Refresh Tokens & Token Rotation
+* 👥 Role-Based Access Control (RBAC)
+* 🚪 Logout & Token Blacklisting
+* ✅ Request Validation (Joi / Zod)
+* 📄 API Documentation (Swagger)
 
 ---
 
@@ -219,7 +220,11 @@ const token = jwt.sign(
 **Ashok Sam**
 Backend Developer (Node.js & Express)
 
-* GitHub: https://github.com/ashokkumar2005
-* Portfolio: https://onepiece-portfolio-sam.vercel.app/
+* 🔗 GitHub: https://github.com/ashokkumar2005
+* 🌐 Portfolio: https://onepiece-portfolio-sam.vercel.app/
 
 ---
+
+## ⭐ Support
+
+If you found this project helpful, consider giving it a ⭐ on GitHub!
